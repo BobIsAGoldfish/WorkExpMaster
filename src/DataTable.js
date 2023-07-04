@@ -1,22 +1,30 @@
-import React, { useState } from 'react';
 import data from './data.json';
 import DataItem from './DataItem';
 
-function DataTable() {
+function DataTable({itemNo, setItemNo}) {
 
-  const [itemNo, setItemNo] = useState(0);
+  
 
-  function nextPage()
+  function nextPage(changeby)
   {
-    if (itemNo + 1 < data.length)
+    if (itemNo + changeby < data.length && itemNo + changeby > -1) 
     {
-      setItemNo(itemNo+1);
+      setItemNo(itemNo+changeby);
+    }
+    else if (itemNo + changeby < 0){
+      setItemNo(data.length-1)
+    } else {
+      setItemNo(0)
     }
   }
+ 
 
   return (<div>
-            <DataItem product={data[itemNo]} />
-            <button onClick={() => nextPage()}>Next</button>  
+            <DataItem category = "Individual" product={data[itemNo]} />
+            <button onClick={() => setItemNo(0)}>First</button>  
+            <button onClick={() => nextPage(-1)}>Previous</button>  
+            <button onClick={() => nextPage(1)}>Next</button>
+            <button onClick={() => setItemNo(data.length-1)}>Last</button>  
           </div>);
 }
 

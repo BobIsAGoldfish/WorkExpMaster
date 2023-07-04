@@ -1,11 +1,12 @@
 import React from 'react';
 
-function DataItem({ product }) {
+
+function DataItemButton({setcategory, setItemNo, productNo, product}) {
 
      return (
-          <div class="row">
+          <div class="row" onClick={() => {setItemNo(productNo); setcategory("Individual");}}>
                <div class="column">
-                    <img class="frame" src={`../img/${product.pic}`} alt="product pic" width="250" height="150" />
+                    <img class="frame" src={`../img/${product.pic}`} alt="product pic" width="250" height="150" ></img>
                </div>
                <div class="column">
                     <p class="frame2"> Name: {product.name}</p>
@@ -20,4 +21,4 @@ function DataItem({ product }) {
      );
 }
 
-export default DataItem; 
+export default DataItemButton; 
