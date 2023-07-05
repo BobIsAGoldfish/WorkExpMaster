@@ -1,22 +1,24 @@
 import { render, screen, waitFor } from '@testing-library/react';
-import App from './App.';
+import App from './App.js';
 
-  test('Clicking on the list view sends you to that page', async () => {
+  test('Clicking on the list view sends you to that page (testing dropdown)', async () => {
 
     render(<App />);
 
     await waitFor(() => {
-      expect(screen.getByText("Individual")).toBeInTheDocument();
+      expect(screen.getByTestId("dropdownButton")).toBeInTheDocument();
     });
-    const dropdownBtn = screen.getByText("Individual");
+    const dropdownBtn = screen.getByTestId("dropdownButton");
     expect(dropdownBtn).toBeInTheDocument();
     dropdownBtn.click();
 
     await waitFor(() => {
-        expect(screen.getByText("List")).toBeInTheDocument();
+        expect(screen.getByTestId("listDropdownButton")).toBeInTheDocument();
       });
-    const listBtn = screen.getByTestId("List")
+    const listBtn = screen.getByText("List")
     expect(listBtn).toBeInTheDocument
     listBtn.click()
-    expect(screen.getByText("List View")).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText("List view")).toBeInTheDocument();
+    });
   });

@@ -9,7 +9,6 @@ function checkElement(theText, theTag)
 }
 
 test('List view renders', () => {
-
   render(<Listview />);
   const hammerprice = screen.getByText("Price: £18.50")
   expect(hammerprice).toBeInTheDocument

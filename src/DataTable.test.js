@@ -55,9 +55,7 @@ test('renders item zero from data', () => {
   });
 
   test('clicking the last button shows the last item', async () => {
-
     render(<App/>);
-
     const lastbutton = screen.getByText("Last");
     expect(lastbutton).toBeInTheDocument();
     lastbutton.click();

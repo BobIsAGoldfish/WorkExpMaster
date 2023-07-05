@@ -6,7 +6,7 @@ function Listview({setcategory, setItemNo}) {
     for (let i = 0; i < Data.length; i++){
       view.push(<div key = {i}><DataItemButton setItemNo = {setItemNo} product = {Data[i]} setcategory = {setcategory} productNo={i}/> </div>)
     }
-    return (view);
+    return (<div>List view{view}</div>);
 }
 
 export default Listview; 

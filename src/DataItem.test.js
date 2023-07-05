@@ -8,10 +8,9 @@ function checkElement(theText, theTag)
     expect(linkElement.tagName).toBe(theTag);
 }
 
-test('renders header text', () => {
+test('checks that the dataitem can be correctly obtained from datatable', () => {
 
-  var data = { "Name": "Hammer",      "pic": "hammer_medium.jpg",      "Size": "Medium", "Department": "Tools", "Price": "£12.50"};
-
+  var data = { "name": "Hammer",      "pic": "hammer_medium.jpg",      "size": "Medium", "department": "Tools", "price": 12.50};
   render(<DataItem product={data}/> );
   checkElement("Name: Hammer", "P");
   checkElement("Size: Medium", "P");

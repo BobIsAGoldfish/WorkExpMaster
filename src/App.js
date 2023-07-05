@@ -4,11 +4,22 @@ import DataTable from './DataTable.js';
 import Listview from './Listview.js';
 import Galleryview from './Galleryview.js'
 import Dropdown from './Dropdown.js';
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 
 function App() {
-  const [category, setcategory] = useState("Individual");
-  const [itemNo, setItemNo] = useState(0);
+
+  const [category, setcategory] = useState(localStorage.getItem("Category"));
+  const [itemNo, setItemNo] = useState(parseInt(localStorage.getItem("ItemNo")));
+  useEffect(() => {
+    if (category === null) setcategory("Individual");
+    if (isNaN(itemNo)) setItemNo(0);
+  
+    localStorage.setItem("Category", category)
+    localStorage.setItem("ItemNo", itemNo)
+    console.log(itemNo)
+  }, [category, itemNo])
+  
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -20,6 +31,7 @@ function App() {
       </header>
     </div>
   );
+
 }
 
 export default App;

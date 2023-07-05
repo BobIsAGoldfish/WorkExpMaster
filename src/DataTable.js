@@ -2,9 +2,6 @@ import data from './data.json';
 import DataItem from './DataItem';
 
 function DataTable({itemNo, setItemNo}) {
-
-  
-
   function nextPage(changeby)
   {
     if (itemNo + changeby < data.length && itemNo + changeby > -1) 
@@ -21,10 +18,10 @@ function DataTable({itemNo, setItemNo}) {
 
   return (<div>
             <DataItem category = "Individual" product={data[itemNo]} />
-            <button onClick={() => setItemNo(0)}>First</button>  
-            <button onClick={() => nextPage(-1)}>Previous</button>  
-            <button onClick={() => nextPage(1)}>Next</button>
-            <button onClick={() => setItemNo(data.length-1)}>Last</button>  
+            <button onClick={() => {setItemNo(0)}}>First</button>  
+            <button onClick={() => {nextPage(-1)}}>Previous</button>  
+            <button onClick={() => {nextPage(1)}}>Next</button>
+            <button onClick={() => {setItemNo(data.length-1)}}>Last</button>  
           </div>);
 }
 

@@ -14,7 +14,7 @@ function Galleryview({setcategory, setItemNo}) {
   
   return (view);
 }
-    return (<div className ="grid-container">{getView()}</div>);
+    return (<div> Gallery view<div className ="grid-container"> {getView()}</div> </div>);
 }
 
 export default Galleryview; 
