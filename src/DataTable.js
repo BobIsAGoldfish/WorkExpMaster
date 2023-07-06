@@ -1,7 +1,7 @@
-import data from './data.json';
+
 import DataItem from './DataItem';
 
-function DataTable({itemNo, setItemNo}) {
+function DataTable({itemNo, setItemNo, data}) {
   function nextPage(changeby)
   {
     if (itemNo + changeby < data.length && itemNo + changeby > -1) 
@@ -17,6 +17,8 @@ function DataTable({itemNo, setItemNo}) {
  
 
   return (<div>
+    <div className = "Frame">
+    Individual view </div>
             <DataItem category = "Individual" product={data[itemNo]} />
             <button onClick={() => {setItemNo(0)}}>First</button>  
             <button onClick={() => {nextPage(-1)}}>Previous</button>  

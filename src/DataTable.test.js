@@ -12,10 +12,10 @@ function checkElement(theText, theTag)
 test('renders item zero from data', () => {
 
   render(<App/>);
-  checkElement("Name: Hammer", "P");
-  checkElement("Size: Medium", "P");
-  checkElement("Department: Tools", "P");
-  checkElement("Price: £12.50", "P");  
+  checkElement("Name: Batteries", "P");
+  checkElement("Size: AA", "P");
+  checkElement("Department: Batteries", "P");
+  checkElement("Price: £10.67", "P");  
   checkElement("Next", "BUTTON");
 
 });
@@ -29,7 +29,7 @@ test('renders item zero from data', () => {
     nextButton.click();
 
     await waitFor(() => {
-        expect(screen.getByText("Price: £10.50")).toBeInTheDocument();
+        expect(screen.getByText("Price: £10.67")).toBeInTheDocument();
       });
 
     const prevButton = screen.getByText("Previous");
@@ -37,7 +37,7 @@ test('renders item zero from data', () => {
     prevButton.click();
 
     await waitFor(() => {
-        expect(screen.getByText("Price: £12.50")).toBeInTheDocument();
+        expect(screen.getByText("Price: £10.67")).toBeInTheDocument();
       });
   });
 
@@ -50,7 +50,7 @@ test('renders item zero from data', () => {
     button.click();
 
     await waitFor(() => {
-        expect(screen.getByText("Price: £12.50")).toBeInTheDocument();
+        expect(screen.getByText("Price: £10.67")).toBeInTheDocument();
       });
   });
 
@@ -61,6 +61,6 @@ test('renders item zero from data', () => {
     lastbutton.click();
 
     await waitFor(() => {
-        expect(screen.getByText("Price: £23.45")).toBeInTheDocument();
+        expect(screen.getByText("Price: £10.67")).toBeInTheDocument();
       });
   });

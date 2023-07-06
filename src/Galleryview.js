@@ -1,16 +1,13 @@
 import DataPictureButton from './DataPictureButton';
-import Data from './data.json';
 
-function Galleryview({setcategory, setItemNo}) {
+
+
+function Galleryview({setcategory, setItemNo, Data}) {
     function getView(){
     var view = [];
-    for (var i = 0; i < Data.length; i+=4){
-      for (var j =0; j < 4; j++){
-        if (j+i != 7){
-        view.push(<div className="grid-item" key = {j+i}><DataPictureButton setItemNo = {setItemNo} product = {Data[j+i]} setcategory = {setcategory} productNo={j+i}/> </div>)
-        }
+    for (var i=0; i < Data.length; i++){
+        view.push(<div className="grid-item" key = {i}><DataPictureButton setItemNo = {setItemNo} product = {Data[i]} setcategory = {setcategory} productNo={i}/> </div>)
     }
-  }
   
   return (view);
 }
