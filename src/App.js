@@ -53,7 +53,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1><img src={logo} className="App-logo" alt="logo" />Junior </h1>
-        <div className='Row'  style={{marginRight: 0 + 'em'}}>
+        <div className='Row'  style={{marginRight: -35.5 + 'em'}}>
         <Dropdown category = {category} setcategory = {setcategory} />
         <DropdownOfSorts sortType = {sortType} setSortType = {setSortType} />
         <DropdownFilter filterType = {filterType} setFilterType = {setFilterType} setItemNo = {setItemNo}/>
