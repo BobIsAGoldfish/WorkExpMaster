@@ -1,6 +1,10 @@
 import React from 'react';
 import Data from './data.json'
 
+function uppercaseFirstLetter(word){
+  return word[0].toUpperCase()+word.substr(1,word.length)
+}
+
 function DropdownFilter({filterType, setFilterType, setItemNo}){
   let itemTypes = new Set([]);
   const output = []
@@ -8,7 +12,7 @@ function DropdownFilter({filterType, setFilterType, setItemNo}){
     itemTypes.add(Data[j].name)
 } itemTypes = Array.from(itemTypes)
 for (let i=0; i<itemTypes.length; i++){
-  output.push(<div className = "Row"> <button className = "dropDownButton" onClick={() => {setFilterType(itemTypes[i]); setItemNo(0)}}> {itemTypes[i]} </button> </div>)
+  output.push(<div className = "Row"> <button className = "dropDownButton" onClick={() => {setFilterType(itemTypes[i]); setItemNo(0)}}> {uppercaseFirstLetter(itemTypes[i])} </button> </div>)
 }
 return (
           <div className ="dropdown" >

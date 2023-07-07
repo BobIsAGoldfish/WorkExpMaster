@@ -9,7 +9,7 @@ function checkElement(theText, theTag)
 }
 
 test('List view renders', () => {
-  render(<Listview Data = {Data}/>);
-  const hammerprice = screen.getByTestId("Hammer1")
+  render(<Listview Data = {Data} itemNo = {console.log()} setItemNo = {console.log()}/>);
+  const hammerprice = screen.getByText("Price: £12.50")
   expect(hammerprice).toBeInTheDocument
 });
